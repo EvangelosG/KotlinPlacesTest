@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity(), Places.SearchForPlacesInterface {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        val chickenPlaces = Places()
-        chickenPlaces.searchForPlaces("", this, this)
+        val chickenPlaces = Places("", this, this)
+        chickenPlaces.searchForPlaces()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

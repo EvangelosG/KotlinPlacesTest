@@ -6,20 +6,20 @@ import com.android.volley.toolbox.JsonObjectRequest
 
 import org.json.JSONObject
 
-class Places {
-    fun searchForPlaces(
-        place: String?,
-        context: Context?,
-        searchForBooksInterface: SearchForPlacesInterface?
-    ) {
+class Places (place : String? = "", context: Context?, searchForPlacesInterface: SearchForPlacesInterface? ) {
+    private val thisPlace : String? = place
+    private val thisContext : Context? = context
+    private val thisInterface : SearchForPlacesInterface? = searchForPlacesInterface
+
+    fun searchForPlaces() {
         /*if (place!!.isEmpty()) {
             return
         }*/
-        val queue = VolleySingleton.getInstance(context)!!.requestQueue
-        val url = Endpoints.PLACES_URL + place
+        val queue = VolleySingleton.getInstance(thisContext!!)!!.requestQueue
+        val url = Endpoints.PLACES_URL + thisPlace
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,
-            { response: JSONObject -> searchForBooksInterface!!.loadData(response.toString()) }) { }
+            { response: JSONObject -> thisInterface!!.loadData(response.toString()) }) { }
         queue.add(jsonObjectRequest)
     }
 
