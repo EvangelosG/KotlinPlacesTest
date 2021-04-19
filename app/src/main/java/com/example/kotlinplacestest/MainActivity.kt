@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), Places.SearchForPlacesInterface {
         val gson : Gson = GsonBuilder().create()
         val pResults : PlacesResults = gson.fromJson(data, PlacesResults::class.java)
         for (Results in pResults.results!!) {
-            Log.d(TAG, Results!!.formatted_address!!)
+            Log.d(TAG, Results!!.photos!![0]!!.photo_reference!!)
         }
     }
 }
