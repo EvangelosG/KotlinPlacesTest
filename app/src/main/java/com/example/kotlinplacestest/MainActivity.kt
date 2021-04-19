@@ -7,7 +7,10 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.example.kotlinplacestest.gson.PlacesResults
 import com.example.kotlinplacestest.network.Places
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 
 class MainActivity : AppCompatActivity(), Places.SearchForPlacesInterface {
 
@@ -29,6 +32,10 @@ class MainActivity : AppCompatActivity(), Places.SearchForPlacesInterface {
     }
 
     override fun loadData(data: String?) {
-        Log.d(TAG, data!!)
+        val gson : Gson = GsonBuilder().create()
+        val pResults : PlacesResults = gson.fromJson(data, PlacesResults::class.java)
+        for (Results in pResults.results!!) {
+            Log.d(TAG, Results!!.formatted_address!!)
+        }
     }
 }
