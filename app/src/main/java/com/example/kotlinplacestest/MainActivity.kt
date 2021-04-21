@@ -2,12 +2,9 @@ package com.example.kotlinplacestest
 
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
-import android.view.MenuItem
-import com.example.kotlinplacestest.gson.PlacesResults
+import com.example.kotlinplacestest.gson.places.PlacesResults
 import com.example.kotlinplacestest.network.Places
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -35,7 +32,7 @@ class MainActivity : AppCompatActivity(), Places.SearchForPlacesInterface {
         val gson : Gson = GsonBuilder().create()
         val pResults : PlacesResults = gson.fromJson(data, PlacesResults::class.java)
         for (Results in pResults.results!!) {
-            Log.d(TAG, Results!!.photos!![0]!!.photo_reference!!)
+            Log.d(TAG, Results!!.formatted_address!!)
         }
     }
 }
