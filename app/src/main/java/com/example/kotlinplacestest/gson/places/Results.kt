@@ -23,33 +23,37 @@ data class Geometry(
 )
 
 data class Location(
-    val lat: Float?,
-    val lng: Float?
+        val lat: Float?,
+        val lng: Float?
 )
 
 data class Viewport(
-        val region: String?,
-        val northeast: RegionInfo?,
-        val southwest: RegionInfo?
+        val northeast: NorthEast?,
+        val southwest: SouthWest?
 )
 
-data class RegionInfo(
-    val lat: Float?,
-    val lng: Float?
+data class NorthEast(
+        val lat: Float?,
+        val lng: Float?
+)
+
+data class SouthWest(
+        val lat: Float?,
+        val lng: Float?
 )
 
 data class OpeningHours(
-    val open_now: Boolean?
+        val open_now: Boolean?
 )
 
 data class Photos(
-    val height: Int?,
-    val html_attributions: List<String?>?,
-    val photo_reference: String?,
-    val width: Int?
+        val height: Int?,
+        val html_attributions: List<String?>?,
+        val photo_reference: String?,
+        val width: Int?
 )
 
 data class PlusCode(
-    val compound_code: String?,
-    val global_code: String?
+        val compound_code: String?,
+        val global_code: String?
 )
